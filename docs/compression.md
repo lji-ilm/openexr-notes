@@ -36,4 +36,7 @@ This property can be exploited further. As early as in a piece of [JPEG2000 work
 
 More sophisticated methods were examined in a [paper](../resources/MIsenburg_floatingpointGeometry.pdf) also by Peter Lindstorm (Peter is the initial author of zfp, when it was still a research project).
 This particular paper concerns compressing a geometry stream represented in IEEE floats; that is, the numbers are the XYZ coordinates of vertices of a mesh.
-In this geometry stream (axis separated - X/Y/Z are 3 float streams), similar localities can be exploited if the vertices are sorted. 
+In this geometry stream (axis separated - X/Y/Z are 3 float streams), similar localities can be exploited if the vertices are somewhat sorted. 
+It is easy to see that if a part of a large mesh has all its vertices placed together in the stream, then this part of the stream would also have a slowly varying exponent and a rapidly varying mantissa, because all vertices of this part would be bounded by the spatial extent of this mesh part.
+The research then proceeds to compress exponent and mantissa separately and use them to predict each other.
+However Peter himself later acknowledged that this inter-dependent predictor design is too complicated and favored the simpler method introduced in zfp.
