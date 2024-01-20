@@ -18,6 +18,19 @@ Without a profiling benchmark, it's hard to say something (like a new compressio
 
 Larry also mentioned in slack that performance was a pain-point for openEXR, compared to TIFF.
 
+## C. Modify the website building script, removing the exr &rarr; jpeg conversion in website building to make it cross-platform.
+
+One of the website building script, [test_images.py](https://github.com/AcademySoftwareFoundation/openexr/blob/e571107f1ee340bbb1b48e1a76f2e8c8f46d04c1/website/scripts/test_images.py) is a python3 script which downloads example images, convert them to jpeg, and dyanmically organize an `rst` file as the test-images page.
+
+This script currently is written in a way that only works in Linux, as it dependes on `wget`, `which`, in addition to `convert` and `exrheader`.
+It also dependes on linux path conventions instead of the Windows one. 
+It is possible to make a robust, cross-platform test image conversion script, but it might be too much work as this is just for generating the example image page of the website.
+
+In addition, I disucssed that the website should be self-contained editable. 
+If a website editor (let's say it's not a very technical person) edited and previewed the website, but somehow the exr test image repo was updated, then the website will change appearance, and the editor would lose clue of why it changed after the edit.
+Keep exr &rarr; jpg conversion outside the website building process will make the website editing more closely resemble a document editing workflow, and be more consistent/predicable for professional editors who are not tech savvy.
+
+
 # Notes
 
 - [Notes on floating point compression.](docs/compression.md)
