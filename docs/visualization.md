@@ -23,3 +23,6 @@ Of particular note is that the DICOM standard itself included a chapter called "
 ImageJ, J2 and [Fiji](https://fiji.sc/) are powerhorse in scientific image processing used by the majority of the image processing community, particularly practioners (none-researchers, people work in commercial labs etc). 
 There may be some merit to provide an openEXR reader to imageJ, since it is such a strong diagnostic tool (and with a great reputation).
 Scientific community are well-known for its ability to (re)invent non-compatible image formats from every single lab, and ImageJ is (said) to be very easy to add an additional reader plugin.
+
+It might be also okay to build an ImageJ reader on top of OpenImageIO, but as ImageJ is a specialized 2D-number-array diagnosis tool, it's more useful if ImageJ can read the original numbers (in any color space, any scale, with int/long/float/double format) in the stored file.
+ImageJ is not a image viewer but rather a visual debugging tool for large 2D number arrays.
