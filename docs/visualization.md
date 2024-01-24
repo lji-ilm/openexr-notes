@@ -4,7 +4,7 @@ They're more akin to radiometry numbers, where light intensity (such as lumen/m^
 This relates EXR to a physical measurements dataset, where an image (a 2D raster grid) of "numbers" of arbitrary range and meaning cannnot be trivially be displayed by treating them as pixel values on screen.
 
 The discipline addressing the issue of "how to display a number dataset" is scientific visualization, and the specific topic regarding how to map an arbitrary numerical dataset's numbers to display calibrated RGBs is called **Transfer Function**.
-A seminal survey paper a few years ago summerizes recent developments on this topic, although it's a bit overkill for EXR's purpose, since EXR is inherently 2D and biggest chanllenge in transfer function research is how to effectively mapping 3D (volumetic) numerical datasets.
+A [seminal survey paper](../resources/starTransferFunction.pdf) a few years ago summerizes recent developments on this topic, although it's a bit overkill for EXR's purpose, since EXR is inherently 2D and biggest chanllenge in transfer function research is how to effectively mapping 3D (volumetic) numerical datasets.
 For 2D images it typically boils down to color LUT tables or curves. 
 
 ## DICOM
