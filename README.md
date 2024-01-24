@@ -34,3 +34,4 @@ Keep exr &rarr; jpg conversion outside the website building process will make th
 # Notes
 
 - [Notes on floating point compression.](docs/compression.md)
+- [Notes about Visualization](docs/visualization.md)
