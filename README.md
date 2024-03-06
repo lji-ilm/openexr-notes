@@ -30,6 +30,8 @@ In addition, I disucssed that the website should be self-contained editable.
 If a website editor (let's say it's not a very technical person) edited and previewed the website, but somehow the exr test image repo was updated, then the website will change appearance, and the editor would lose clue of why it changed after the edit.
 Keep exr &rarr; jpg conversion outside the website building process will make the website editing more closely resemble a document editing workflow, and be more consistent/predicable for professional editors who are not tech savvy.
 
+# Bibliography
+https://developer.nvidia.com/gpugems/gpugems/part-iv-image-processing/chapter-26-openexr-image-file-format
 
 # Notes
 
