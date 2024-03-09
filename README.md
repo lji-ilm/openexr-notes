@@ -33,6 +33,13 @@ Keep exr &rarr; jpg conversion outside the website building process will make th
 # Bibliography
 https://developer.nvidia.com/gpugems/gpugems/part-iv-image-processing/chapter-26-openexr-image-file-format
 
+Library of congress digital file format intelligence page:
+https://www.loc.gov/preservation/digital/formats/fdd/fdd000583.shtml
+
+Dreamworks contributed a lossy compression... what is that?
+https://www.renderosity.com/article/17221/dreamworks-animation-contributes-lossy-compression-to-openexr-2-2
+
+
 # Notes
 
 - [Notes on floating point compression.](docs/compression.md)
