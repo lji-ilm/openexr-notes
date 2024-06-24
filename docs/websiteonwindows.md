@@ -3,7 +3,7 @@
 1. Checkout your fork into a local dir, preferrably not inside Documents because Windows security policies. Github desktop can be used.
 2. Install python (official download) into another folder, use the installer version (has pip).
 3. Pip install `sphinx`, `breathe`, `sphinx-press-theme`. These are the only requirements when one ignores building the C API.
-4. the bin is `Scripts\sphinx-build`, the command is `sphinx-build -b html <openexr>\website <build dir>
+4. the bin is `Scripts\sphinx-build`, the command is `sphinx-build -b html <openexr>\website <output dir>`
 
 Example:
 1. clone exr into `c:\ASWF\openexr\`
