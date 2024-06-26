@@ -41,7 +41,17 @@ These software could be used cross platform:
 2. mrv2 - small and nimble, but is professional grad image viewer https://mrv2.sourceforge.io/
 3. openRV - student need to build from source, but more comphrensive. https://github.com/AcademySoftwareFoundation/OpenRV/tree/main
 
+Not sure about imagemagick, maybe not Windows friendly.
+
 # Rendering more synthetic test data
+
+First of all, we should organize a batch of singal-processing oriented synthetic data. 
+The open source repo has a few checker boards, but we might want more (different frequency domain feature, row v.s. column directional frequency, color channel differences, etc)
+
+For example considering those standard DIP/Computer Vision datasets: https://www.imageprocessingplace.com/root_files_V3/image_databases.htm
+Their dynamic range is insufficient to test EXR's capability, but we might pull a few from there if we have a HDR source (ex. astronomy pseudo color photos - if we have the source data and view transformation, then we can transform them again into HDR photos.)
+
+For rendering:
 
 Blender supports EXR since blender 4. Look at cycles demo scenes https://www.blender.org/download/demo-files/#cycles.
 Check license.
