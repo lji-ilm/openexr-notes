@@ -33,7 +33,7 @@ They could be used in some tests, as numbers in the raw EXR bytestream would be 
 # Viewing EXR images - for sanity check purposes
 
 EXR stores scene linear RGB and in theory need a view transform until it is viewable.
-However, since we do not deal with color science here, students should have an easy way to just see the pictures.
+However, since we do not deal with color science here, students should have an easy way to just "see the pictures" regardless if color display is accurate or not.
 
 These software could be used cross platform:
 
