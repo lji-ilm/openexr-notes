@@ -60,6 +60,8 @@ Look at AnimalLogic's Alab Project: https://animallogic.com/alab/
 
 Look at pbrt's scene repo which is academic friendly: https://github.com/mmp/pbrt-v4-scenes
 
+pbrt directly renders into EXR: https://pbrt.org/users-guide-v4
+
 Need ILM support to get more renderable sets.
 
 Standard graphics assets like Conell Box and Standford bunny should be included. These could server as introductory exercise of how to use blender and output into exr, and we will have better control of the property of the resultant exr bytestream (ex. singal range, frequency, etc)
