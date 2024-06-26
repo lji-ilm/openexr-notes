@@ -1,7 +1,8 @@
 # Investigate compression rate first
 
 The profiling of compression speed/IO performance part might need more technical effort and is hardware dependent.
-Meanwhile the compression rate evaluation is static (only look at file/bytestream sizes) and could be operated from python, if the python binding become functional by the time the students join. 
+
+Meanwhile the compression rate evaluation is static (only look at file/bytestream sizes) and could be operated from python.
 
 # Test data source - HDR Photographic survey 
 
@@ -11,6 +12,8 @@ The fundamental property of this dataset is that it is all photographic.
 Example - 1st picture: 
 
 http://markfairchild.org/HDR.html
+
+
 http://markfairchild.org/HDRPS/Scenes/PeckLake.html
 
 # Test data source - ACES EXR 1.6 benchmark dataset
