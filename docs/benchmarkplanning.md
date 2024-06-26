@@ -38,3 +38,18 @@ These software could be used cross platform:
 1. GIMP - tried and verified. Not the most up to date EXR code but it always display something for you to look at.
 2. mrv2 - small and nimble, but is professional grad image viewer https://mrv2.sourceforge.io/
 3. openRV - student need to build from source, but more comphrensive.
+
+# Rendering more synthetic test data
+
+Blender supports EXR since blender 4. Look at cycles demo scenes https://www.blender.org/download/demo-files/#cycles.
+Check license.
+
+Look at AnimalLogic's Alab Project: https://animallogic.com/alab/
+
+Look at pbrt's scene repo which is academic friendly: https://github.com/mmp/pbrt-v4-scenes
+
+Need ILM support to get more renderable sets.
+
+Standard graphics assets like Conell Box and Standford bunny should be included. These could server as introductory exercise of how to use blender and output into exr, and we will have better control of the property of the resultant exr bytestream (ex. singal range, frequency, etc)
+
+
