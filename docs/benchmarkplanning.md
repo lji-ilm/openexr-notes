@@ -13,7 +13,6 @@ Example - 1st picture:
 
 http://markfairchild.org/HDR.html
 
-
 http://markfairchild.org/HDRPS/Scenes/PeckLake.html
 
 # Test data source - ACES EXR 1.6 benchmark dataset
@@ -40,7 +39,7 @@ These software could be used cross platform:
 
 1. GIMP - tried and verified. Not the most up to date EXR code but it always display something for you to look at.
 2. mrv2 - small and nimble, but is professional grad image viewer https://mrv2.sourceforge.io/
-3. openRV - student need to build from source, but more comphrensive.
+3. openRV - student need to build from source, but more comphrensive. https://github.com/AcademySoftwareFoundation/OpenRV/tree/main
 
 # Rendering more synthetic test data
 
