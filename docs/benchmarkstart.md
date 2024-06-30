@@ -20,3 +20,18 @@ The exercise will not involve:
 1. Openexr-images: recommend for desk.jpg, can download.
 2. ACES-testimages: recommend for sonyf35stilllife, downloaded.
 3. HDR Photograhic survey: recommend for goldengate2 http://markfairchild.org/HDRPS/Scenes/GoldenGate(2).html
+
+## Method
+
+Exercise goals:
+
+1. (Lvl 0) Practise open the 3-4 sample exrs with specialized software.
+2. (Lvl 0) Practise forking and compiling openEXR repo, reading out metadata of the sample exrs.
+3. (Lvl 0) Caculate the existing compression ratio, by calculating the raw size by hand and see the current compression ratio. 
+4. (Lvl 1) Time the decompression time using process wrapper (one shot).
+5. (Lvl 1) Load the raw buffer into the memory and write out a raw-exr file as benchmark checkpoint.
+6. (Lvl 1) Load the raw buffer with all C++, C and python APIs, and time them.
+7. (Lvl 2) Re-compression the raw buffer using different, built in compression method.
+8. (Lvl 2) Re-compression with all C++, C and python APIs (can do?)
+9. (Lvl 2) Time the raw-to-compression time using process warpper (one shot).
+10. (Lvl 3) Time the decompression and raw-to compression using C++/C APIs (one shot), and recomplie the project with the instrumented code.
