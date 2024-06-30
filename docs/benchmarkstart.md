@@ -17,5 +17,6 @@ The exercise will not involve:
 
 3 Pictures.
 
-1. Openexr-images: recommend for stillife.jpg
-2. ACES-testimages: recommend for 
+1. Openexr-images: recommend for desk.jpg, can download.
+2. ACES-testimages: recommend for sonyf35stilllife, downloaded.
+3. HDR Photograhic survey: recommend for goldengate2 http://markfairchild.org/HDRPS/Scenes/GoldenGate(2).html
