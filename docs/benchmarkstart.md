@@ -40,3 +40,10 @@ Exercise goals:
 
 1. Try to render a few heritage subject in EXRs, like cornell box/bunny. Blender 4 or Pbrt, prefer Blender 4.
 2. Try to get Level 0-1-2 done myself with a compliation of openEXR Core C binary on Windows or WSL. Only do Core. One shoot benchmark.
+
+## Additional Benchmarking data:
+
+1. Cornell Box team has photogrametrically accurate pictures of the real box: https://www.graphics.cornell.edu/online/box/data.html. These are single wavelength measurements, and a spectural responsibility curve of RGB is required to integrate them into the RGB picture. 
+2. Stanford bunny's lab maintains a bunch of 3d models one can use for research. https://graphics.stanford.edu/data/3Dscanrep/ One might figure out how to render these with Blender 4.
+3. Note that Blender 4 will release a LTS on the version 4 line soon.
+4. Blender supports saving to EXR and EXR multi-channel since 2015. Investigate which version of OpenEXR they use in Blender 4
