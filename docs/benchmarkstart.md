@@ -35,3 +35,8 @@ Exercise goals:
 8. (Lvl 2) Re-compression with all C++, C and python APIs (can do?)
 9. (Lvl 2) Time the raw-to-compression time using process warpper (one shot).
 10. (Lvl 3) Time the decompression and raw-to compression using C++/C APIs (one shot), and recomplie the project with the instrumented code.
+
+## What should I do myself on this?
+
+1. Try to render a few heritage subject in EXRs, like cornell box/bunny. Blender 4 or Pbrt, prefer Blender 4.
+2. Try to get Level 0-1-2 done myself with a compliation of openEXR Core C binary on Windows or WSL. Only do Core. One shoot benchmark.
