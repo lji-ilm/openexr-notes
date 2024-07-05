@@ -47,3 +47,79 @@ Exercise goals:
 2. Stanford bunny's lab maintains a bunch of 3d models one can use for research. https://graphics.stanford.edu/data/3Dscanrep/ One might figure out how to render these with Blender 4.
 3. Note that Blender 4 will release a LTS on the version 4 line soon.
 4. Blender supports saving to EXR and EXR multi-channel since 2015. Investigate which version of OpenEXR they use in Blender 4
+
+## Kimball's performance.cpp
+Kimball wrote a simple profiler under `src/test/OpenEXRCoreTest`.
+Here: https://github.com/AcademySoftwareFoundation/openexr/blob/main/src/test/OpenEXRCoreTest/performance.cpp
+
+This little code compiles into its own binary called `bin/CorePerfTest` upon a full build. 
+It seems the data it outputs mainly concerns the "advantage" of the Core implementation over the Imf C++ implementation. 
+Running it over the 3 test images i've got yields the following results, and there are some small problems when running (there is an ERROR about "different pixel counts" and ilmimf read exactly 0 pixels).
+
+It might be worthwhile to take this as my starting point to write a better profiling tools, while let the students to repeat the run on datasets.
+
+```
+/mnt/c/ASWF/openexr/build/bin$ ./CorePerfTest ../../../testimages/ACES.StillLife.exr
+ERROR: different pixel counts recorded: core 41472000 ilmimf 0
+Stats for reading: 1 files 20 times
+
+ Timers  Core            IlmImf
+ Header: 31789863        38346265        ns
+   Data: 2063014509      5770097652      ns
+  Close: 7213395         7350797         ns
+  Total: 2102017767      5815794714      ns
+
+ Ave     Core            IlmImf
+ Header: 1.58949e+06     1.91731e+06     ns
+   Data: 1.03151e+08     2.88505e+08     ns
+  Close: 360670          367540          ns
+  Total: 1.05101e+08     2.9079e+08      ns
+
+ Ratios
+ Header: 1.20624
+   Data: 2.79693
+  Close: 1.01905
+  Total: 2.76677
+/mnt/c/ASWF/openexr/build/bin$ ./CorePerfTest ../../../testimages/OpenEXR.Desk.exr
+ERROR: different pixel counts recorded: core 11540480 ilmimf 0
+Stats for reading: 1 files 20 times
+
+ Timers  Core            IlmImf
+ Header: 40235703        58463903        ns
+   Data: 345774415       534539126       ns
+  Close: 11938501        10699600        ns
+  Total: 397948619       603702629       ns
+
+ Ave     Core            IlmImf
+ Header: 2.01179e+06     2.9232e+06      ns
+   Data: 1.72887e+07     2.6727e+07      ns
+  Close: 596925          534980          ns
+  Total: 1.98974e+07     3.01851e+07     ns
+
+ Ratios
+ Header: 1.45304
+   Data: 1.54592
+  Close: 0.896226
+  Total: 1.51704
+/mnt/c/ASWF/openexr/build/bin$ ./CorePerfTest ../../../testimages/HDRSurvey_GoldenGate.exr
+ERROR: different pixel counts recorded: core 244244480 ilmimf 0
+Stats for reading: 1 files 20 times
+
+ Timers  Core            IlmImf
+ Header: 43784521        48037118        ns
+   Data: 4389283827      6516039266      ns
+  Close: 8872803         78286440        ns
+  Total: 4441941151      6642362824      ns
+
+ Ave     Core            IlmImf
+ Header: 2.18923e+06     2.40186e+06     ns
+   Data: 2.19464e+08     3.25802e+08     ns
+  Close: 443640          3.91432e+06     ns
+  Total: 2.22097e+08     3.32118e+08     ns
+
+ Ratios
+ Header: 1.09713
+   Data: 1.48453
+  Close: 8.82319
+  Total: 1.49537
+```
