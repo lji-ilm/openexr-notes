@@ -2,7 +2,10 @@
 
 ## I want these papers
 
-https://dl.acm.org/doi/abs/10.1016/j.imavis.2006.05.007
+https://ieeexplore.ieee.org/document/1039960
+
+https://ieeexplore.ieee.org/document/1457452
+
 
 ## A. Better compression
 
