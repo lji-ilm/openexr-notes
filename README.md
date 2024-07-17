@@ -1,5 +1,9 @@
 # openexr-wishlist
 
+## I want these papers
+
+https://dl.acm.org/doi/abs/10.1016/j.imavis.2006.05.007
+
 ## A. Better compression
 
 1. Better compression ratio - smaller persistent storage files. See notes.
