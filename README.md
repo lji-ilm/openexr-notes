@@ -1,12 +1,5 @@
 # openexr-wishlist
 
-## I want these papers
-
-https://ieeexplore.ieee.org/document/1039960
-
-https://ieeexplore.ieee.org/document/1457452
-
-
 ## A. Better compression
 
 1. Better compression ratio - smaller persistent storage files. See notes.
