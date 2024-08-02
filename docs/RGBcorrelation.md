@@ -67,3 +67,35 @@ The byte swizzle can continue to be enabled, such that all the three channels af
 
 The current investigation is to plot the R-B residue (just the high bit) from strategy 2 and 3 and compare their complexity. If 2 appears to be similar to 3 then 3 is preferred due to the faster performance of XOR. 
 
+## Prelimiary experiment results
+
+I did the comparsion of byte subtraction v.s. XOR on a down-sized data set (one scanline from an example image). I realized an important point for subtraction to work better -- arithmetic subtraction respect first degree similiarities between the two signals, while XOR does not.
+
+Consider the following example:
+
+```
+S1 = 66
+S2 = 26
+delta = 8
+S1 xor S2 = 0x58
+(S1 + delta) xor (S2 + delta) = 0x68
+```
+
+With arithmetic subtraction, if the two singals are increasing or decrasing at the same pace after sample, the subtraction result remain the same, and will be eliminated by the subsequent delta-encoding (`s'=s[i+1]-s[i]`) step. But with XOR, it results in a new token and remains a new, none-zero token after delta-encoding. Therefore i think arithmetic subtraction is a better zero-order predictor for RGB correlation than XOR.
+
+## Next step: Benchmark methodology.
+
+We only benchmark the pre-filtering and therefore we only generates bytestream files on disk, then use any general purpose standalone bins to compress them.
+
+We do not consider the full file byte structure (yet). Here we assume that we are given a sequence of RGBA-half pixels (either tile or scanline) and we focus on the low-level byte/bits construction/filtering of the bytestream.
+
+According to the above prelimiary investigation, the following bytestream patterns are to be benchmarked.
+
+1. Original - `RGBARGBARGBA...RGBA`
+2. Channel separated - `RRRR...GGGG...BBBB...AAAA`
+3. Byte Swizzle - R<sub>hi</sub>R<sub>hi</sub>R<sub>hi</sub>R<sub>hi</sub>....R<sub>lo</sub>R<sub>lo</sub>R<sub>lo</sub>R<sub>lo</sub>B<sub>hi</sub>B<sub>hi</sub>B<sub>hi</sub>B<sub>hi</sub>....B<sub>lo</sub>B<sub>lo</sub>B<sub>lo</sub>B<sub>lo</sub>...
+4. Byte Swizzle With delta encoding - add `new[i] = old[i+1] - old[i]` on top of the previous stream
+5. Byte Swizzle plus channel correlation zero order predictor - R'<sub>hi</sub>R'<sub>hi</sub>R'<sub>hi</sub>R'<sub>hi</sub>....R<sub>lo</sub>R<sub>lo</sub>R<sub>lo</sub>R<sub>lo</sub>B'<sub>hi</sub>B'<sub>hi</sub>B'<sub>hi</sub>B'<sub>hi</sub>....B<sub>lo</sub>B<sub>lo</sub>B<sub>lo</sub>B<sub>lo</sub>..., where R'<sub>hi</sub> = G<sub>hi</sub> - R<sub>hi</sub> and B'<sub>hi</sub> = G<sub>hi</sub> - B<sub>hi</sub> as `uint8` and with overflow rounding (e.g. if result < 0, result += 256). Note that we do not predict the low (mantissa) byte.
+6. Add delta encoding `new[i] = old[i+1] - old[i]` on top of the above.
+
+The result bystreams can be passed into any off-the-shelf lossless compressors (e.g. gzip, deflate, zstd) and test the ratio.
