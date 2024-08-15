@@ -40,7 +40,23 @@ class EXRByteStreams():
         return self.ROriginal.flatten()
 
     @cached_property
-    def 
+    def RGBInterlaced():
+    # Byte Stream 1 - Interlacing RGBRGB (in mem viewing layout)
+        interlaced = np.zeros((self.num_pixels * 3), dtype=np.half)
+        for i in range(self.num_pixels):
+              interlaced[i * 3] = self.RFlatten[i]
+              interlaced[i * 3 + 1] = self.GFlatten[i]
+              interlaced[i * 3 + 2] = self.BFlatten[i]
+        return interlaced.tobytes()
+
+    @cached_property
+    def RGBSeparated():
+    # Byte Stream 2 - Channel separated (RRRR...GGGG...BBBB)
+        return (self.RFlatten.tobytes()
+                + self.GFlatten.tobytes()
+                + self.BFlatten.tobytes())
+
+    
 
 
 def ConvertAndSaveByteStreams(data, dir, fn_prefix):
