@@ -42,7 +42,7 @@ https://www.renderosity.com/article/17221/dreamworks-animation-contributes-lossy
 Mark Fairchild (mark.fairchild@rit.edu), a professor at RIT, did a benchmark dataset for HDR imaging research. This dataset is in EXR, probably in an earlier version. We should make use of it instead of starting from scratch.
 http://markfairchild.org/HDR.html
 
-#Start to do local scripting..
+#Start to do local scripting...
 
 # Notes
 
