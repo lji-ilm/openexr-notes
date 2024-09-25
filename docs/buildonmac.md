@@ -61,6 +61,8 @@ Next, create a virtual environment somewhere in your user space using the python
 
 Go to this venv, activate it, and install `numpy` into this venv by using pip. Note, the binding requires numpy to run, but it is only a runtime requirement, not a build time requirement (build time only requires pybind11).
 
+**DO NOT** `pip install OpenEXR` as this will install the old binding written by someone else, and create naming conflicts for the new binding binary we just built.
+
 Lastly, navigate to the folder where you have the previously built `OpenEXR.so`. Launch python (the venv python!) here, and try `import OpenEXR`. This is a quick way of validating if the built binding is importable without properly set `PYTHON_PATH`. 
 
 ## Use the built binding in Jupyter notebook
