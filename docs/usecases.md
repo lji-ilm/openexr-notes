@@ -28,7 +28,19 @@ The access patterns may emerge from the total possibility of all access behaviou
 
 We can discover these access patterns in many ways, including:
 
-1. Anecdotally. By asking studio experts and software vendors to report by experiences what are the most likely patterns. This is what we're trying to do here.
-2. By Instrumentation. We can insert statistics to the fundamental digital image software libraries and distribute these instrumented libraries to studios. By using these libraries in real-world production, the statistics collected would reveal the ground-truth access pattern of images. This methodology is considered a future stage of our investigation.
+1. Anecdotally, by asking studio experts and software vendors to report by experiences what are the most likely patterns. This is what we're trying to do here.
+2. By reviewing source code of end-user software tools that are available, for example Blender, Natorn or GIMP. This can reveal the total set of possible access behaviours of the software, but not necessearily reveal the relative importance or frequency of the behaviours, or let us deduce the common patterns.
+3. By Instrumentation. We can insert statistics to the fundamental digital image software libraries and distribute these instrumented libraries to studios. By using these libraries in real-world production, the statistics collected would reveal the ground-truth access pattern of images. This methodology is considered a future stage of our investigation.
 
 ## Preivous Work
+
+In a discussion before, we have noted the following four anecdotal read-access patterns according to general expert experiences, and assigned them tentetive names:
+
+1. The "Simple Read" access pattern; wherein an whole image is being read from a disk file with all its data into the RAM. This is typically the case for copy, transcoding or other batch operations. 
+2. The "Scanline" access pattern; wherein a software tool would read one or a fixed number of scanlines at a time from an image file. The end-user software tool may also access scanlines randomly and not following a pre-given sequence.
+3. The "Playback" access pattern; wherein a software tool would keep reading color information from a constant rectangle from a sequence of image files. The rectangle might be the same as the whole image, for which the case is similar to No.1. The rectangle can typically also be smaller than the whole image on disk, and dailys/review software tend to access image sequences in this pattern.
+4. The "Tile" access pattern; wherein a software tool would first query the tiling/MIPMAP/RIPMAP data structure in an image then read one such tile out at a time. This seems to be the predominant pattern of rendering software accessing textures. 
+
+## Open for discussion
+
+At this stage, we would like to follow the anecdotal route and discuss together about the read-access patterns, including the 4 proposed above and more patterns that seems to be in important in realworld production.
